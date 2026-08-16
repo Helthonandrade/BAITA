@@ -151,15 +151,12 @@
   }
   nav{
     position:relative;
-    display:flex; align-items:center; justify-content:flex-start;
-    flex-wrap:nowrap;
-    gap:clamp(.5rem,2.4vw,3.25rem);
+    display:flex; align-items:center; justify-content:center;
+    flex-wrap:wrap;
+    row-gap:.5rem;
+    column-gap:clamp(1rem,2.4vw,3.25rem);
     max-width:100%;
-    overflow-x:auto;
-    scrollbar-width:none;
-    -webkit-overflow-scrolling:touch;
   }
-  nav::-webkit-scrollbar{ display:none; }
   .nav-highlight{
     position:absolute;
     top:0; left:0;
@@ -612,16 +609,6 @@
   @media (max-width:560px){
     header{ padding:1.1rem 1.25rem; }
   }
-  @media (max-width:640px){
-    nav{
-      flex-wrap:wrap;
-      justify-content:center;
-      overflow-x:visible;
-      max-width:none;
-      row-gap:.5rem;
-      column-gap:1.1rem;
-    }
-  }
 </style>
 </head>
 <body>
@@ -637,6 +624,7 @@
     <a href="#jeito">Nosso Jeito</a>
     <a href="#quemfaz">Quem faz ser BAITA</a>
     <a href="#ferramentas">Ferramentas Baita</a>
+    <a href="#contato">Fale com a gente</a>
   </nav>
 </header>
 
@@ -653,26 +641,22 @@
     </div>
   </section>
 
-  <p style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">Estratégia que sai do papel. Criatividade que chama atenção. Execução impecável de ponta a ponta. Experiências que aproximam marcas e pessoas.</p>
+  <p style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">Estratégia que sai do papel. Execução impecável de ponta a ponta. Experiências que aproximam marcas e pessoas.</p>
   <div class="marquee-band" aria-hidden="true">
     <div class="marquee-track" id="marqueeTrack">
       <div class="marquee-seg">
         <span class="phrase">Estratégia que sai do papel</span><span class="marquee-sep"></span>
-        <span class="phrase">Criatividade que chama atenção</span><span class="marquee-sep"></span>
         <span class="phrase">Execução impecável de ponta a ponta</span><span class="marquee-sep"></span>
         <span class="phrase">Experiências que aproximam marcas e pessoas</span><span class="marquee-sep"></span>
         <span class="phrase">Estratégia que sai do papel</span><span class="marquee-sep"></span>
-        <span class="phrase">Criatividade que chama atenção</span><span class="marquee-sep"></span>
         <span class="phrase">Execução impecável de ponta a ponta</span><span class="marquee-sep"></span>
         <span class="phrase">Experiências que aproximam marcas e pessoas</span><span class="marquee-sep"></span>
       </div>
       <div class="marquee-seg" aria-hidden="true">
         <span class="phrase">Estratégia que sai do papel</span><span class="marquee-sep"></span>
-        <span class="phrase">Criatividade que chama atenção</span><span class="marquee-sep"></span>
         <span class="phrase">Execução impecável de ponta a ponta</span><span class="marquee-sep"></span>
         <span class="phrase">Experiências que aproximam marcas e pessoas</span><span class="marquee-sep"></span>
         <span class="phrase">Estratégia que sai do papel</span><span class="marquee-sep"></span>
-        <span class="phrase">Criatividade que chama atenção</span><span class="marquee-sep"></span>
         <span class="phrase">Execução impecável de ponta a ponta</span><span class="marquee-sep"></span>
         <span class="phrase">Experiências que aproximam marcas e pessoas</span><span class="marquee-sep"></span>
       </div>
@@ -773,7 +757,7 @@
         </div>
         <div class="jeito-card reveal">
           <div class="bar" style="background:var(--laranja)"></div>
-          <h3>Nada de Ctrl+C</h3>
+          <h3>Nada de Ctrl+C e Ctrl+V</h3>
           <p>Cada marca tem um desejo, um público e uma sinergia. Por isso, toda solução começa do zero e ganha uma identidade própria.</p>
         </div>
         <div class="jeito-card reveal">
@@ -826,8 +810,8 @@
         <div class="quemfaz-rule"></div>
         <h3 class="headline reveal">Criatividade que aguenta o vento.</h3>
         <div class="quemfaz-text reveal">
-          <p>Há mais de 15 anos, Helthon vive no ponto exato onde criatividade e operação se encontram — aquele lugar em que uma boa ideia precisa caber no orçamento, funcionar na montagem e fazer sentido para quem está do outro lado.</p>
-          <p><strong>Do conceito à logística de rua. Da narrativa ao fornecedor. Da planilha ao momento em que tudo acende.</strong></p>
+          <p>Há mais de 15 anos, Helthon vive no ponto exato onde criatividade e operação se encontram, <strong>naquele lugar em que uma boa ideia precisa caber no orçamento, funcionar na montagem e fazer sentido para quem está do outro lado</strong>.</p>
+          <p>Do conceito à logística de rua. Da narrativa ao fornecedor. Da planilha ao momento em que tudo acende.</p>
           <p>Já trabalhou nos bastidores de grandes festivais, ao lado de artistas como Ms. Lauryn Hill, 50 Cent e Jack Johnson, e transformou desafios de marcas como Ambev, Globo, Hotmart e Localiza em experiências reais.</p>
           <p>Seu repertório passa por cultura, entretenimento, gestão e produção. Mas o que move tudo é simples: entender o contexto, juntar as pessoas certas e fazer acontecer sem perder a essência pelo caminho.</p>
         </div>
@@ -836,11 +820,11 @@
           <h4>Repertório que entrega</h4>
           <div class="rep-item">
             <h5>Palco principal</h5>
-            <p>Produção artística para Ms. Lauryn Hill, 50 Cent e Jack Johnson.</p>
+            <p>Produção artística para Ms. Lauryn Hill, 50 Cent, Jack Johnson, Elza Soares, Moraes Moreira, Rita Lee, Skank, Pato Fu, Los Hermanos, Criolo, Tulipa Ruiz, Alceu Valença, Ney Matogrosso e outros grandes nomes da música nacional e internacional.</p>
           </div>
           <div class="rep-item">
             <h5>Marcas em escala real</h5>
-            <p>Ambev, Globo, Hotmart, Localiza, Localiza Seminovos e Tembici.</p>
+            <p>Ambev, Globo, Hotmart, Localiza, Localiza Seminovos, Tembici, Textron Aviation, Itambé, Cemig, Oi, Vivo, Claro, Red Bull, Minasmáquinas, RIVA, RAM, Governo do Estado de Minas Gerais, Google, Bernoulli, Multiplan e outros grandes players.</p>
           </div>
           <div class="rep-item">
             <h5>Gestão sem romantização</h5>
@@ -861,12 +845,12 @@
     <div class="section-inner">
       <p class="eyebrow reveal">Ferramentas Baita</p>
       <h2 class="headline reveal" style="max-width:16ch;">Ferramentas de quem produz na prática.</h2>
-      <p class="lede reveal">Planilhas e guias que a BAITA usa nos próprios projetos, liberados pra você usar nos seus. A biblioteca cresce aos poucos — <a href="materiais.html" style="color:var(--paper); text-decoration:underline;">veja a biblioteca completa ↗</a></p>
+      <p class="lede reveal">Planilhas e guias que a BAITA usa nos próprios projetos, liberados pra você usar nos seus. A biblioteca cresce aos poucos: <a href="materiais.html" style="color:var(--paper); text-decoration:underline;">veja a biblioteca completa ↗</a></p>
       <div class="materials-list reveal">
         <a class="material-card" href="https://docs.google.com/spreadsheets/d/1GO8-wv3JtmkhF4iwIrz7l9Zm9xAvvjMyO84efWw_q_0/copy" target="_blank" rel="noopener">
           <span class="mat-tag">Planilha · Google Sheets</span>
           <span class="mat-title">Scorecard Profundo de Métricas para Eventos</span>
-          <span class="mat-desc">O Scorecard Profundo BAITA é uma planilha completa de métricas para eventos, ativações de marca, experiências presenciais e live marketing. A ferramenta reúne indicadores de alcance, engajamento, experiência do público, percepção de marca, repercussão, geração de leads, conversão, retorno sobre investimento — ROI —, operação e sustentabilidade.</span>
+          <span class="mat-desc">O Scorecard Profundo BAITA é uma planilha completa de métricas para eventos, ativações de marca, experiências presenciais e live marketing. A ferramenta reúne indicadores de alcance, engajamento, experiência do público, percepção de marca, repercussão, geração de leads, conversão, retorno sobre investimento, o ROI, operação e sustentabilidade.</span>
           <span class="mat-cta">Fazer minha cópia ↗</span>
         </a>
         <a class="material-card" href="https://docs.google.com/spreadsheets/d/1Ntx_KY2F1zkRf_B4FW-8Zqpg96E823EM2fFili9D160/copy" target="_blank" rel="noopener">
@@ -915,12 +899,20 @@
 
   var navHighlight = document.getElementById('navHighlight');
   var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav a[href^="#"]'));
-  var navSections = ['alcance', 'preco', 'jeito', 'quemfaz', 'ferramentas'].map(function(id){
+  var navSections = ['alcance', 'preco', 'jeito', 'quemfaz', 'ferramentas', 'contato'].map(function(id){
     return { id: id, el: document.getElementById(id), link: document.querySelector('nav a[href="#' + id + '"]') };
   }).filter(function(s){ return s.el && s.link; });
 
-  var mobileQuery = window.matchMedia('(max-width:640px)');
   var pad = 12;
+
+  var isWrapped = function(){
+    if(navLinks.length < 2) return false;
+    var firstTop = navLinks[0].offsetTop;
+    for(var i = 1; i < navLinks.length; i++){
+      if(navLinks[i].offsetTop !== firstTop) return true;
+    }
+    return false;
+  };
 
   var setBox = function(box, eased){
     navHighlight.classList.toggle('is-eased', !!eased);
@@ -987,7 +979,7 @@
   };
 
   var updateHighlight = function(){
-    if(mobileQuery.matches){ updateMobile(); } else { updateDesktop(); }
+    if(isWrapped()){ updateMobile(); } else { updateDesktop(); }
   };
 
   var onScroll = function(){
