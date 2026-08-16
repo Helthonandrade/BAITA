@@ -154,7 +154,7 @@
     display:flex; align-items:center; justify-content:center;
     flex-wrap:wrap;
     row-gap:.5rem;
-    column-gap:clamp(1rem,2.4vw,3.25rem);
+    column-gap:clamp(.5rem,2.2vw,3.25rem);
     max-width:100%;
   }
   .nav-highlight{
@@ -180,7 +180,7 @@
     flex:none;
     white-space:nowrap;
     padding:.45rem .1rem;
-    font-size:clamp(.68rem,1.9vw,.95rem);
+    font-size:clamp(.56rem,1.7vw,.95rem);
     font-weight:700;
     letter-spacing:.07em;
     text-transform:uppercase;
@@ -946,10 +946,18 @@
     if(!navSections.length){ setBox(null, false); return; }
     var firstEl = navSections[0].el;
     var lastEl = navSections[navSections.length - 1].el;
+    var refY = window.innerHeight * 0.45;
+    var doc = document.documentElement;
+    var maxScrollY = Math.max(0, doc.scrollHeight - window.innerHeight);
+    var maxReachableRefYDoc = maxScrollY + refY;
     var firstRect = firstEl.getBoundingClientRect();
     var lastRect = lastEl.getBoundingClientRect();
-    var span = lastRect.bottom - firstRect.top;
-    var progress = span > 0 ? (0 - firstRect.top) / span : 0;
+    var contentTopDoc = window.scrollY + firstRect.top;
+    var contentBottomDoc = window.scrollY + lastRect.bottom;
+    var effectiveBottomDoc = Math.min(contentBottomDoc, maxReachableRefYDoc);
+    var refYDoc = window.scrollY + refY;
+    var span = effectiveBottomDoc - contentTopDoc;
+    var progress = span > 0 ? (refYDoc - contentTopDoc) / span : 0;
     progress = Math.min(1, Math.max(0, progress));
 
     var firstLink = navSections[0].link;
