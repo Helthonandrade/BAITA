@@ -844,8 +844,8 @@
   <section class="section section-pad" id="ferramentas">
     <div class="section-inner">
       <p class="eyebrow reveal">Ferramentas Baita</p>
-      <h2 class="headline reveal" style="max-width:16ch;">Ferramentas de quem produz na prática.</h2>
-      <p class="lede reveal">Planilhas e guias que a BAITA usa nos próprios projetos, liberados pra você usar nos seus. A biblioteca cresce aos poucos: <a href="materiais.html" style="color:var(--paper); text-decoration:underline;">veja a biblioteca completa ↗</a></p>
+      <h2 class="headline reveal" style="max-width:16ch;">Ferramentas que usamos para fazer eventos funcionarem.</h2>
+      <p class="lede reveal">Planilhas e guias que a BAITA usa nos próprios projetos, liberados pra você usar nos seus. Cada material novo entra direto aqui: <a href="materiais.html" style="color:var(--paper); text-decoration:underline;">veja as ferramentas ↗</a></p>
       <div class="materials-list reveal">
         <a class="material-card" href="https://docs.google.com/spreadsheets/d/1GO8-wv3JtmkhF4iwIrz7l9Zm9xAvvjMyO84efWw_q_0/copy" target="_blank" rel="noopener">
           <span class="mat-tag">Planilha · Google Sheets</span>
@@ -975,7 +975,7 @@
     var barRight = barLeft + barWidth;
 
     navSections.forEach(function(s){
-      if(s.link.offsetLeft <= barRight) s.link.classList.add('is-active');
+      if(s.link.offsetLeft + s.link.offsetWidth <= barRight) s.link.classList.add('is-active');
     });
 
     setBox({
