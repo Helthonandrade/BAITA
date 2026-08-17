@@ -312,7 +312,7 @@
   .section-white .lede{ color:var(--paper-soft); }
   .lede{ color:var(--ink-soft); }
 
-  h2.headline{
+  h2.headline, h3.headline{
     font-size:clamp(2.1rem,5.2vw,4rem);
     line-height:.98;
     max-width:16ch;
@@ -812,7 +812,7 @@
         <div class="quemfaz-text reveal">
           <p>Há mais de 15 anos, Helthon vive no ponto exato onde criatividade e operação se encontram, <strong>naquele lugar em que uma boa ideia precisa caber no orçamento, funcionar na montagem e fazer sentido para quem está do outro lado</strong>.</p>
           <p>Do conceito à logística de rua. Da narrativa ao fornecedor. Da planilha ao momento em que tudo acende.</p>
-          <p>Já trabalhou nos bastidores de grandes festivais, ao lado de artistas como Ms. Lauryn Hill, 50 Cent e Jack Johnson, e transformou desafios de marcas como Ambev, Globo, Hotmart e Localiza em experiências reais.</p>
+          <p>Já trabalhou nos bastidores de grandes festivais, ao lado de artistas como Ms. Lauryn Hill, 50 Cent e Jack Johnson, e transformou desafios de clientes corporativos como Ambev, Globo, Hotmart, Localiza, Gerdau e outros gigantes do mercado em experiências reais.</p>
           <p>Seu repertório passa por cultura, entretenimento, gestão e produção. Mas o que move tudo é simples: entender o contexto, juntar as pessoas certas e fazer acontecer sem perder a essência pelo caminho.</p>
         </div>
 
@@ -824,7 +824,7 @@
           </div>
           <div class="rep-item">
             <h5>Marcas em escala real</h5>
-            <p>Ambev, Globo, Hotmart, Localiza, Localiza Seminovos, Tembici, Textron Aviation, Itambé, Cemig, Oi, Vivo, Claro, Red Bull, Minasmáquinas, RIVA, RAM, Governo do Estado de Minas Gerais, Google, Bernoulli, Multiplan e outros grandes players.</p>
+            <p>Ambev, Globo, Hotmart, Localiza, Localiza Seminovos, Textron Aviation, Itambé, Cemig, Oi, Vivo, Claro, Red Bull, Minasmáquinas, RIVA, RAM, Governo do Estado de Minas Gerais, Google, Bernoulli, Multiplan e outros grandes players.</p>
           </div>
           <div class="rep-item">
             <h5>Gestão sem romantização</h5>
@@ -944,38 +944,27 @@
 
   var updateDesktop = function(){
     if(!navSections.length){ setBox(null, false); return; }
-    var firstEl = navSections[0].el;
-    var lastEl = navSections[navSections.length - 1].el;
     var refY = window.innerHeight * 0.45;
-    var doc = document.documentElement;
-    var maxScrollY = Math.max(0, doc.scrollHeight - window.innerHeight);
-    var maxReachableRefYDoc = maxScrollY + refY;
-    var firstRect = firstEl.getBoundingClientRect();
-    var lastRect = lastEl.getBoundingClientRect();
-    var contentTopDoc = window.scrollY + firstRect.top;
-    var contentBottomDoc = window.scrollY + lastRect.bottom;
-    var effectiveBottomDoc = Math.min(contentBottomDoc, maxReachableRefYDoc);
     var refYDoc = window.scrollY + refY;
-    var span = effectiveBottomDoc - contentTopDoc;
-    var progress = span > 0 ? (refYDoc - contentTopDoc) / span : 0;
-    progress = Math.min(1, Math.max(0, progress));
 
-    var firstLink = navSections[0].link;
-    var lastLink = navSections[navSections.length - 1].link;
-    var navLeft = firstLink.offsetLeft;
-    var navRight = lastLink.offsetLeft + lastLink.offsetWidth;
-    var navSpan = navRight - navLeft;
+    var matchIndex = -1;
+    for(var i = 0; i < navSections.length; i++){
+      var topDoc = window.scrollY + navSections[i].el.getBoundingClientRect().top;
+      if(refYDoc >= topDoc){ matchIndex = i; } else { break; }
+    }
 
     navLinks.forEach(function(l){ l.classList.remove('is-active'); });
 
-    if(progress <= 0){ setBox(null, false); return; }
+    if(matchIndex === -1){ setBox(null, true); return; }
 
+    var firstLink = navSections[0].link;
+    var navLeft = firstLink.offsetLeft;
+    var activeLink = navSections[matchIndex].link;
     var barLeft = navLeft - pad;
-    var barWidth = progress * navSpan + pad * 2;
-    var barRight = barLeft + barWidth;
+    var barWidth = (activeLink.offsetLeft + activeLink.offsetWidth - navLeft) + pad * 2;
 
-    navSections.forEach(function(s){
-      if(s.link.offsetLeft + s.link.offsetWidth <= barRight) s.link.classList.add('is-active');
+    navSections.forEach(function(s, idx){
+      if(idx <= matchIndex) s.link.classList.add('is-active');
     });
 
     setBox({
@@ -983,7 +972,7 @@
       left: barLeft,
       width: barWidth,
       height: firstLink.offsetHeight
-    }, false);
+    }, true);
   };
 
   var updateHighlight = function(){
