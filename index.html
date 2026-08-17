@@ -225,6 +225,8 @@
   .btn-solid{ background:var(--curva); color:var(--ink); }
   .btn-solid:hover{ transform:translateY(-2px); box-shadow:0 12px 28px -12px rgba(237,70,37,.55); }
   .btn-lg{ padding:1rem 2.1rem; font-size:.85rem; }
+  .btn-outline{ background:transparent; color:var(--paper); border:1.5px solid rgba(255,255,255,.35); }
+  .btn-outline:hover{ border-color:var(--paper); background:rgba(255,255,255,.08); transform:translateY(-2px); }
 
   /* ---------- layout scaffolding ---------- */
   main{ position:relative; z-index:1; }
@@ -576,6 +578,9 @@
   .cta-headline{ font-size:clamp(2.6rem,7vw,5.5rem); line-height:.96; max-width:16ch; }
   .cta-sub{ margin-top:1.25rem; font-size:clamp(1.05rem,1.8vw,1.4rem); color:var(--ink-soft); max-width:34ch; }
   .cta-actions{ margin-top:clamp(2rem,5vh,2.75rem); display:flex; justify-content:center; flex-wrap:wrap; gap:1.5rem; }
+  .cta-email{ margin-top:1.75rem; font-size:.95rem; }
+  .cta-email a{ color:var(--ink-soft); text-decoration:underline; text-underline-offset:3px; transition:color .25s ease; }
+  .cta-email a:hover{ color:var(--paper); }
 
   footer{
     position:relative; z-index:1;
@@ -877,7 +882,10 @@
       <p class="cta-sub reveal">Você traz o desafio e nós movimentamos marcas e pessoas.</p>
       <div class="cta-actions reveal">
         <a class="btn btn-solid btn-lg" href="https://wa.me/5531992180996" target="_blank" rel="noopener">Começar uma baita ideia</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/baita.ag" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/company/baita-live-marketing" target="_blank" rel="noopener">LinkedIn</a>
       </div>
+      <p class="cta-email reveal"><a href="mailto:atendimento@baita.site">atendimento@baita.site</a></p>
     </div>
   </section>
 
@@ -888,7 +896,7 @@
 <footer>
   <div class="footer-bar"></div>
   <div class="section-inner footer-row">
-    <span>© 2026. BAITA. Todos os direitos reservados.</span>
+    <span>© 2026. BAITA.</span>
     <div class="footer-links">
       <a href="materiais.html">Materiais para eventos</a>
       <a href="https://www.instagram.com/baita.ag" target="_blank" rel="noopener">Instagram</a>
