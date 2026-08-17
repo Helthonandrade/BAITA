@@ -199,7 +199,10 @@
     width:var(--container); margin-inline:auto;
     padding:clamp(1.5rem,4vh,2rem) 0 clamp(2.5rem,6vh,3.5rem);
     font-size:.8rem; color:var(--ink-faint);
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem;
   }
+  .footer-row a:hover{ color:var(--paper); }
+  .footer-links{ display:flex; flex-wrap:wrap; gap:1.5rem; }
 
   @media (max-width:480px){
     .material-card:hover, .material-card:focus-visible{ padding-inline:1rem; }
@@ -256,6 +259,11 @@
   <div class="footer-bar"></div>
   <div class="footer-row">
     <span>© 2026. BAITA. Todos os direitos reservados.</span>
+    <div class="footer-links">
+      <a href="./">Site</a>
+      <a href="https://www.instagram.com/baita.ag" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/company/baita-live-marketing" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
   </div>
 </footer>
 
